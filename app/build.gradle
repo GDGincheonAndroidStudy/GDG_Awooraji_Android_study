@@ -16,7 +16,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
     }
+
+    // http://stackoverflow.com/questions/33226978/could-not-find-property-xxxx-on-com-android-build-gradle-appextension-decorate
+    // http://stackoverflow.com/questions/33365650/cannot-resolve-symbol-c882c94be45fff9d16a1cf845fc16ec5
+    buildTypes.each {
+        it.buildConfigField 'String', 'OPEN_WEATHER_MAP_API_KEY', "\"f9dfa6c6ce199ff925789150d08bad72\""
+    }
+
 }
 
 dependencies {
@@ -24,4 +32,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
+
 }
